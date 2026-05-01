@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/UserWebController (snapshot).java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/UserWebController (snapshot).java" />
+              <option name="originalContent" value="package com.example.demo.controller;&#10;&#10;import com.example.demo.dto.UserDTO;&#10;import com.example.demo.service.UserService;&#10;import org.springframework.http.ResponseEntity;&#10;import org.springframework.web.bind.annotation.*;&#10;&#10;@RestController&#10;@RequestMapping(&quot;/users&quot;)&#10;@CrossOrigin(origins = &quot;*&quot;)&#10;public class UserWebController {&#10;&#10;private final UserService userService;&#10;&#10;    public UserWebController(UserService userService) {&#10;        this.userService = userService;&#10;    }&#10;&#10;    @PostMapping&#10;    public ResponseEntity&lt;?&gt; criar(@RequestBody UserDTO dto) {&#10;&#10;        userService.createUser(dto);&#10;&#10;        return ResponseEntity.ok(&quot;Usuário criado com sucesso&quot;);&#10;    }&#10;&#10;}&#10;" />
+              <option name="updatedContent" value="package com.example.demo.controller;&#10;&#10;import com.example.demo.dto.UserDTO;&#10;import com.example.demo.service.UserService;&#10;import org.springframework.http.ResponseEntity;&#10;import org.springframework.web.bind.annotation.*;&#10;&#10;@RestController&#10;@RequestMapping(&quot;/users&quot;)&#10;@CrossOrigin(origins = &quot;*&quot;)&#10;public class UserWebController {&#10;&#10;private final UserService userService;&#10;&#10;    public UserWebController(UserService userService) {&#10;        this.userService = userService;&#10;    }&#10;&#10;    @PostMapping&#10;    public ResponseEntity&lt;?&gt; criar(@RequestBody UserDTO dto) {&#10;&#10;        userService.createUser(dto);&#10;&#10;        return ResponseEntity.ok(&quot;Usuário criado com sucesso&quot;);&#10;    }&#10;&#10;    @GetMapping&#10;    public ResponseEntity&lt;?&gt; listar() {&#10;        // Assuming you have a method to get all users, but since it's not there, perhaps return a message&#10;        return ResponseEntity.ok(&quot;Endpoint GET /users - implemente listagem se necessário&quot;);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/demo/src/main/java/com/example/demo/repository/OverviewRepository.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/demo/src/main/java/com/example/demo/repository/OverviewRepository.java" />
+              <option name="originalContent" value="package com.example.demo.repository;&#10;&#10;import com.example.demo.entity.ExpenseEntity;&#10;import com.example.demo.entity.OverviewEntity;&#10;import org.springframework.data.jpa.repository.JpaRepository;&#10;&#10;public interface OverviewRepository extends JpaRepository&lt;OverviewEntity, Integer&gt; {&#10;}&#10;" />
+              <option name="updatedContent" value="package com.example.demo.repository;&#10;&#10;import com.example.demo.entity.OverviewEntity;&#10;import org.springframework.data.jpa.repository.JpaRepository;&#10;&#10;import java.time.Month;&#10;import java.time.Year;&#10;import java.util.Optional;&#10;&#10;public interface OverviewRepository extends JpaRepository&lt;OverviewEntity, Integer&gt; {&#10;    Optional&lt;OverviewEntity&gt; findByUserIdAndMonthAndYear(Long userId, Month month, Year year);&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

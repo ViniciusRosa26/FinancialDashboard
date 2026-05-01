@@ -1,0 +1,269 @@
+:root {
+    /* Define a identidade visual base da aplicação. */
+    color: #223049;
+    background:
+        radial-gradient(circle at top left, rgba(238, 173, 94, 0.22), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(78, 120, 255, 0.2), transparent 24%),
+        linear-gradient(135deg, #f6efe5 0%, #f4f7fb 52%, #eef2ff 100%);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    /* Garante cálculo previsível de tamanho para todos os elementos. */
+    box-sizing: border-box;
+}
+
+body {
+    /* Remove margens padrão e mantém o fundo cobrindo a viewport inteira. */
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+button,
+input,
+select {
+    /* Mantém herança tipográfica para consistência visual entre controles. */
+    font: inherit;
+}
+
+#root {
+    /* Permite que cada página ocupe toda a altura da tela. */
+    min-height: 100vh;
+}
+
+.page-shell {
+    /* Cria o enquadramento principal compartilhado por todas as páginas. */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+.card {
+    /* Define o container padrão para formulários e conteúdo principal. */
+    width: 100%;
+    max-width: 560px;
+    padding: 36px;
+    border: 1px solid rgba(34, 48, 73, 0.1);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 24px 60px rgba(34, 48, 73, 0.12);
+    backdrop-filter: blur(10px);
+}
+
+.card--hero {
+    /* Dá mais largura para a home comportar os dois atalhos principais. */
+    max-width: 720px;
+}
+
+.eyebrow {
+    /* Destaca a categoria do módulo logo no topo da página. */
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #b35c00;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+h1 {
+    /* Estilo principal de título compartilhado pelas páginas. */
+    margin: 0 0 12px;
+    color: #162033;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.05;
+}
+
+.lead {
+    /* Texto de apoio usado logo abaixo do título. */
+    margin: 0 0 28px;
+    color: #5f6f86;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.actions-grid {
+    /* Organiza os atalhos da home em uma grade responsiva. */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-layout {
+    /* Empilha os campos do formulário com espaçamento consistente. */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.field {
+    /* Agrupa rótulo e controle do formulário em uma única coluna. */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #26344d;
+    font-weight: 600;
+}
+
+.field input,
+.field select {
+    /* Padroniza inputs e selects para todas as páginas. */
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d8deea;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #223049;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus {
+    /* Realça o campo ativo sem poluir o layout. */
+    outline: none;
+    border-color: #3563e9;
+    box-shadow: 0 0 0 4px rgba(53, 99, 233, 0.14);
+}
+
+.checkbox-field {
+    /* Mantém checkbox e label alinhados horizontalmente. */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #26344d;
+    font-weight: 600;
+}
+
+.button {
+    /* Define a aparência base dos botões reutilizados no app. */
+    border: none;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+    /* Adiciona resposta visual simples ao passar o mouse. */
+    transform: translateY(-1px);
+}
+
+.button:disabled {
+    /* Indica indisponibilidade de ação durante carregamento ou bloqueio. */
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.button--primary {
+    /* Destaca a ação principal de cada fluxo. */
+    background: linear-gradient(135deg, #1d3c78 0%, #3563e9 100%);
+    color: #ffffff;
+    box-shadow: 0 18px 28px rgba(54, 99, 233, 0.24);
+}
+
+.button--secondary {
+    /* Cria uma alternativa visual para ações importantes secundárias. */
+    background: #f3ede2;
+    color: #8a4f04;
+    border: 1px solid rgba(179, 92, 0, 0.14);
+}
+
+button--tertiary {
+    /* Oferece uma opção ainda mais discreta para ações menos prioritárias. */
+    background: #FF0000;
+    color: #5f6f86;
+    border: 1px solid rgba(95, 111, 134, 0.14);
+}
+
+.button--ghost {
+    /* Usa um estilo discreto para ações de navegação. */
+    margin-bottom: 24px;
+    padding: 0;
+    background: transparent;
+    color: #5f6f86;
+    text-align: left;
+}
+
+.button--full {
+    /* Faz o botão ocupar toda a largura do formulário. */
+    width: 100%;
+}
+
+.feedback {
+    margin: 20px 0 0;
+    font-weight: 600;
+}
+
+.feedback--error {
+    color: #ad2e2e;
+}
+
+.summary-card {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(34, 48, 73, 0.12);
+}
+
+.summary-card h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #162033;
+}
+
+.summary-id {
+    margin: 8px 0 20px;
+    color: #5f6f86;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+}
+
+.summary-grid div {
+    padding: 16px;
+    border-radius: 16px;
+    background: #f7f9fc;
+    border: 1px solid #e2e8f2;
+}
+
+.summary-grid dt {
+    margin-bottom: 8px;
+    color: #5f6f86;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.summary-grid dd {
+    margin: 0;
+    color: #162033;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .card {
+        /* Ajusta o container para telas menores. */
+        padding: 28px 20px;
+        border-radius: 22px;
+    }
+
+    .actions-grid {
+        /* Empilha os atalhos da home em celulares. */
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
