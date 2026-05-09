@@ -1,0 +1,26 @@
+services:
+
+  frontend:
+    build:
+      context: ./vite-project
+      dockerfile: Dockerfile2
+    ports:
+      - "5173:5173"
+
+  backend:
+    build:
+      context: ./demo
+    ports:
+      - "9090:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: finance
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5434:5432"
+
